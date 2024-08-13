@@ -4,13 +4,13 @@ let computerScore = 0;
 
 function getComputerChoice(){
     let choosenValue = Math.floor(Math.random()*3);
-    console.log("Computer choose "+choices[choosenValue])
+    // console.log("Computer choose "+choices[choosenValue])
     return choices[choosenValue];
 }
 
 function getHumanChoice(){
     let userInput = prompt("Please enter your choice");
-    console.log("Human Choose "+userInput.toUpperCase())
+    // console.log("Human Choose "+userInput.toUpperCase())
     return userInput.toUpperCase();
 }
 
