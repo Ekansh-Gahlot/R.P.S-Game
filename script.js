@@ -10,7 +10,7 @@ function getComputerChoice(){
 
 function getHumanChoice(){
     let userInput = prompt("Please enter your choice");
-    // console.log("Human Choose "+userInput.toUpperCase())
+    
     return userInput.toUpperCase();
 }
 
