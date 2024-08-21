@@ -8,6 +8,8 @@ function getComputerChoice(){
     return choices[choosenValue];
 }
 
+
+
 function getHumanChoice(){
     let userInput = prompt("Please enter your choice");
     // console.log("Human Choose "+userInput.toUpperCase())
