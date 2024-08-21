@@ -1,7 +1,7 @@
 const choices = ["ROCK", "PAPER", "SCISSORS"];
 let humanScore = 0;
 let computerScore = 0;
-
+console.log("HII)");
 function getComputerChoice(){
     let choosenValue = Math.floor(Math.random()*3);
     // console.log("Computer choose "+choices[choosenValue])
