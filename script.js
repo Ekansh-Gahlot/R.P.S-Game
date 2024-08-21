@@ -1,7 +1,7 @@
 const choices = ["ROCK", "PAPER", "SCISSORS"];
 let humanScore = 0;
 let computerScore = 0;
-console.log("HII)");
+
 function getComputerChoice(){
     let choosenValue = Math.floor(Math.random()*3);
     // console.log("Computer choose "+choices[choosenValue])
@@ -16,16 +16,35 @@ function playRound(humanChoice, computerChoice){
     const user_score = document.querySelector('.user-score-tracker')
     const computer_score = document.querySelector('.computer-score-tracker')
     const container_one = document.querySelector('.container-one');
+    const tie_text = document.querySelector('.tie-text');
+    const div_tie = document.createElement('div');
     live_stats.style.display = "block";
+    // if(tie_text.style.display === 'block')
+    // {
+    //     tie_text.style.display = 'none';
+    // }
 
-    console.log("HUMAN CHOOSES "+humanChoice);
-    console.log("COMPUTER CHOOSE "+computerChoice);
+    
+
+
     //Count the scores
     if((humanChoice === "ROCK" && computerChoice === "ROCK") ||(humanChoice === "SCISSORS" && computerChoice === "SCISSORS") || (humanChoice === "PAPER" && computerChoice === "PAPER"))
     {
-        console.log("it's a tie");
+        div_tie.setAttribute('style','display:block; color:white; font-size:24px; font-weight: bold; text-align: center;')
+        
+        div_tie.textContent = `The round ${round_counter} was a tie!`;
+        
+        live_stats.appendChild(div_tie);
+
+        // tie_text.style.display = 'block';
+        
+        if(round_counter === 5)
+        {
+            checkWinner();
+        }
+        return;
     }
-    if(humanChoice === "ROCK" && computerChoice === "PAPER"){
+    else if(humanChoice === "ROCK" && computerChoice === "PAPER"){
         humanScore++;
     }
     else if(humanChoice === "SCISSORS" && computerChoice === "PAPER"){
@@ -42,29 +61,39 @@ function playRound(humanChoice, computerChoice){
 
     //Display the winner
     if(round_counter === 5)
-    {   const display = document.createElement('div');
-        display.setAttribute('style',' color:white; text-align:center; font-size:24px; font-style:italic;')
-        
-        if(humanScore > computerScore){
-            display.textContent = `The winner is HUMAN! WELL DONE. As it is said, One machine can do the 
-            work of fifty ordinary men. No machine can do the work of one extraordinary man`
-        }
-        else{
-            display.textContent = `The winner is MACHINE. I am not easy to beat bro!
-             I visualise a time when humans will be to robots 
-            what dogs are to humans, and I'm rooting for the machines.`
-        }
-        container_one.appendChild(display);
+    {   
+        checkWinner();
+    }
+
+    function checkWinner(){
+        const display = document.createElement('div');
+                display.setAttribute('style',' color:white; text-align:center; font-size:24px; font-style:italic;')
+                
+                if(humanScore > computerScore){
+                    display.textContent = `You are the winner! WELL DONE. As it is said, One machine can do the 
+                    work of fifty ordinary men. No machine can do the work of one extraordinary man`
+                }
+                else if(humanScore<computerScore){
+                    display.textContent = `I am the winner. I am not easy to beat bro!
+                    I visualise a time when humans will be to robots 
+                    what dogs are to humans, and I'm rooting for the machines.`
+                }
+                else{
+                    display.textContent = `The game is tied. Let me upgrade myself......`
+                }
+            container_one.appendChild(display);
     }
 }
 
 
+
+
 function playGame(){
-    // for(let i = 0; i < 5; i++){
-        const humanSelection = null;
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection,computerSelection);
-    // }
+
+    const humanSelection = null;
+    const computerSelection = getComputerChoice();
+    playRound(humanSelection,computerSelection);
+ 
     if(humanScore > computerScore){
         console.log("You are the winner of the game!");
         console.log("User score is", +humanScore);
