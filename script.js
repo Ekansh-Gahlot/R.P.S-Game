@@ -17,10 +17,13 @@ function playRound(humanChoice, computerChoice){
     const computer_score = document.querySelector('.computer-score-tracker')
     const container_one = document.querySelector('.container-one');
     live_stats.style.display = "block";
+
+    console.log("HUMAN CHOOSES "+humanChoice);
+    console.log("COMPUTER CHOOSE "+computerChoice);
     //Count the scores
     if((humanChoice === "ROCK" && computerChoice === "ROCK") ||(humanChoice === "SCISSORS" && computerChoice === "SCISSORS") || (humanChoice === "PAPER" && computerChoice === "PAPER"))
     {
-        console.log("it's a tie")
+        console.log("it's a tie");
     }
     if(humanChoice === "ROCK" && computerChoice === "PAPER"){
         humanScore++;
