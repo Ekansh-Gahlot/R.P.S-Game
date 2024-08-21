@@ -97,8 +97,9 @@ btn_menu.addEventListener('click', (event)=>{
 
 
 function displayExitMessage(){
-    const new_message = document.createElement('div');
-    new_message.setAttribute('style','font-size:100px; text-align:center; color:white; font-weight:bolder;')
-    new_message.textContent = "GO AWAY I PLAY NO MORE!"
-    document.body.appendChild(new_message);
+    // const new_message = document.createElement('div');
+    // new_message.setAttribute('style','font-size:100px; text-align:center; color:white; font-weight:bolder;')
+    // new_message.textContent = "GO AWAY I PLAY NO MORE!"
+    // document.body.appendChild(new_message);
+    alert("Go Away, I play no more.")
 }
